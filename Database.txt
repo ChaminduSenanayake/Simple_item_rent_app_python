@@ -1,0 +1,24 @@
+drop database  if exists PowerTool;
+create database PowerTool;
+use PowerTool;
+
+create table Item(
+itemCode varchar(10),
+itemName varchar(100),
+description varchar(100),
+quantity int(10),
+rentPrice decimal(10,2),
+constraint primary key(itemCode)
+);
+
+create table Rent(
+rentId varchar(10),
+customerName varchar(100),
+nic varchar(100),
+itemCode varchar(10),
+quantity int(10),
+rentPrice decimal(10,2),
+date varchar(10),
+constraint primary key(rentId), 
+constraint foreign key(itemCode) references Item(itemCode)
+);
